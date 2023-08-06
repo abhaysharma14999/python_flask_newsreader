@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>News Reader</title>
+</head>
+<body>
+    <h1>News Reader</h1>
+    {% with messages = get_flashed_messages() %}
+        {% if messages %}
+            <ul>
+            {% for message in messages %}
+                <li>{{ message }}</li>
+            {% endfor %}
+            </ul>
+        {% endif %}
+    {% endwith %}
+
+    <form method="post" action="/">
+        <label for="interval">Update Interval (seconds):</label>
+        <input type="number" id="interval" name="interval" value="{{ interval }}" required>
+        <input type="submit" value="Start Reading">
+    </form>
+
+    {% if continue_reading %}
+        <p>Reading news every {{ interval }} seconds.</p>
+        <a href="{{ url_for('stop_reading') }}">Stop Reading</a>
+    {% else %}
+        <p>Not currently reading news.</p>
+    {% endif %}
+</body>
+</html>
