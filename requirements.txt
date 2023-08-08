@@ -2,3 +2,5 @@ pyttsx3==2.90  # Specific version of pyttsx3
 json5==0.9.6  # Specific version of json5
 requests==2.26.0  # Specific version of requests
 Flask==2.1.1  # Specific version of Flask
+gunicorn==20.1.0
+
